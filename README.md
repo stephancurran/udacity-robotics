@@ -13,6 +13,11 @@ $ `export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:/home/workspace/myrobot/build
 
 Run with `gazebo build_my_world/world/the_office.world`  
 
+# Go Chase It!
+The `ball_chaser` package makes the robot move toward the white ball by checking the camera input for white pixels, and aims for the midpoint of the leftmost and rightmost found. Start with:  
+`roslaunch my_robot world.launch`  
+`roslaunch ball_chaser ball_chaser.launch`  
+
 # Where Am I?
 Uses the Map Server, ACML, and Move Base packages to help localise and navigate.  
 Launch Gazebo and Rviz with:  
