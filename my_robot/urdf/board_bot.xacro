@@ -185,7 +185,7 @@
   
   <!-- Camera -->
   <joint name="camera_joint" type="fixed">
-    <origin xyz="0.5 0 0" rpy="0 0 0"/>
+    <origin xyz="0.5 0 0.025" rpy="0 0 0"/>
     <parent link="body"/>
     <child link="camera"/>
     <axis xyz="0 1 0" rpy="0 0 0"/>
@@ -195,14 +195,14 @@
     <visual name="camera_visual">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <sphere radius="0.03" />
+        <sphere radius="0.025" />
       </geometry>
     </visual>
 
     <collision name="camera_collision">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <sphere radius="0.03" />
+        <sphere radius="0.025" />
       </geometry>
     </collision>
 
@@ -212,7 +212,37 @@
       <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
     </inertial>
   </link>
+ 
+ <!-- RGBD Camera -->
+  <joint name="rgbd_camera_optical_joint" type="fixed">
+    <origin xyz="0.5 0 -0.025" rpy="0 0 0"/>
+    <parent link="body"/>
+    <child link="rgbd_camera"/>
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+  </joint>
+  
+  <link name="rgbd_camera">
+    <visual name="rgbd_camera_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.025" />
+      </geometry>
+    </visual>
 
+    <collision name="rgbd_camera_collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.025" />
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="1e-5"/>
+      <origin xyz="0.0 0 0" rpy=" 0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+ 
   <!-- LIDAR -->
   <joint name="hokuyo_joint" type="fixed">
     <origin xyz="0.45 0 0.085" rpy="0 0 0"/>
