@@ -214,35 +214,15 @@
   </link>
  
  <!-- RGBD Camera -->
-  <joint name="rgbd_camera_optical_joint" type="fixed">
-    <origin xyz="0.5 0 -0.025" rpy="0 0 0"/>
-    <parent link="body"/>
-    <child link="rgbd_camera"/>
-    <axis xyz="0 1 0" rpy="0 0 0"/>
+   <joint name="camera_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.5707 0 -1.5707"/>
+    <parent link="camera"/>
+    <child link="camera_link_optical"/>
   </joint>
-  
-  <link name="rgbd_camera">
-    <visual name="rgbd_camera_visual">
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <sphere radius="0.025" />
-      </geometry>
-    </visual>
 
-    <collision name="rgbd_camera_collision">
-      <origin xyz="0 0 0" rpy="0 0 0"/>
-      <geometry>
-        <sphere radius="0.025" />
-      </geometry>
-    </collision>
-
-    <inertial>
-      <mass value="1e-5"/>
-      <origin xyz="0.0 0 0" rpy=" 0 0 0"/>
-      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
-    </inertial>
+  <link name="camera_link_optical">
   </link>
- 
+  
   <!-- LIDAR -->
   <joint name="hokuyo_joint" type="fixed">
     <origin xyz="0.45 0 0.085" rpy="0 0 0"/>

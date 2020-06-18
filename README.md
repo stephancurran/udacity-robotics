@@ -38,14 +38,20 @@ Optionally, start teleop with:
 
 
 # Map My World
-This project uses `rtabmap_ros` to map out the environment.  Start the world and move the robot around with `teleop` :  
-`roslaunch my_robot world.launch`  
+This project uses `rtabmap_ros` to map out the environment (using a smaller world than before to simplify the process). Start the world and move the robot around with `teleop` :  
+`roslaunch my_robot mini_world.launch`  
 `roslaunch my_robot mapping.launch`  
-`rosrun teleop_twist_keyboard teleop_twist_keyboard.py`  
+`roslaunch my_robot teleop.launch`  
 
 This image shows the route taken and the resulting map.  
 
 ![The route taken when mapping](images/rtab_route.png)
+
+
+
+Here's the 3D map.
+
+![3D map](images/3d_map.png)
 
 
 
@@ -55,13 +61,7 @@ And here's the occupancy map.
 
 
 
-The resulting database is available [here](https://drive.google.com/file/d/1HUX0t3hWFJUYfYJY_8GsWH--63Zs6orE/view?usp=sharing), and can be put in `my_robot/maps/rtabmap.db` to  be used for localization, similar to the *Where Am I?* project.  
+The resulting database is available [here](https://drive.google.com/file/d/1iyAVE3LfqA92Yvxj8nCyixcxft3ElnlB/view?usp=sharing), and can be put in `my_robot/maps/rtabmap.db` to  be used for localization, similar to the *Where Am I?* project.  
 `roslaunch my_robot world.launch`  
 `roslaunch my_robot localization.launch`  
-`rosrun teleop_twist_keyboard teleop_twist_keyboard.py`  
-
-
-
-Here's a side-by-side of the RGB and depth images from the robot's starting point.
-
-![RGB vs Depth comparison](images/rgb_depth_comparison.png)
+`roslaunch my_robot teleop.launch`  
