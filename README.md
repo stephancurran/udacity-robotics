@@ -1,6 +1,5 @@
 # Intro
-These are the projects for the Udacity Robotics Software Engineer Nanodegree Program.
-
+These are the projects for the Udacity Robotics Software Engineer Nanodegree Program. Please clone the repo into the `src` folder of your workspace with the `--recursive` switch. It was built with ROS Kinetic.
 
 
 # Build My World
@@ -65,3 +64,20 @@ The resulting database is available [here](https://drive.google.com/file/d/1iyAV
 `roslaunch my_robot world.launch`  
 `roslaunch my_robot localization.launch`  
 `roslaunch my_robot teleop.launch`  
+
+# Home Service Robot
+This project uses the `turtlebot` and `slam_gmapping` packages for localization and mapping. `add_markers` places and removes RVIZ marker visualizations, which are triggered by `pick_objects` controlling the robot's movement.
+
+### Mapping
+Test: `./scripts/test_slam.sh`  
+Here's the map produced by navigating with the `slam_gmapping` package.
+
+![slam_gmapping map](map/slam_map.png)
+
+### Localization and Navigation
+Test: `./scripts/test_navigation.sh`  
+Send robot to pickup/dropoff:  `./scripts/pick_objects.sh`  
+
+### Home Service Functions
+Test: `./scripts/add_marker.sh`  
+Put it all together:  `./scripts/home_service.sh`  
