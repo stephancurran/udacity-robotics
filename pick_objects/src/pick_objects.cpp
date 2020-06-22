@@ -20,7 +20,7 @@ int main(int argc, char** argv){
   }
   
   ros::NodeHandle n;
-  ros::Publisher arrived_pub = n.advertise<std_msgs::String>("arrived", 1000);std_msgs::String msg;
+  ros::Publisher arrived_pub = n.advertise<std_msgs::String>("arrived", 1);std_msgs::String msg;
   
   float xs[2] = {1.0, -1.0};
   float ys[2] = {1.0, -1.0};
@@ -41,7 +41,6 @@ int main(int argc, char** argv){
     goal.target_pose.pose.orientation.w = os[index];
 
      // Send the goal position and orientation for the robot to reach
-    ROS_INFO("Sending goal");
     ac.sendGoal(goal);
 
     // Wait an infinite time for the results
@@ -50,7 +49,7 @@ int main(int argc, char** argv){
     // Check if the robot reached its goal
     if(ac.getState() == actionlib::SimpleClientGoalState::SUCCEEDED)
     {
-      ROS_INFO("okay");
+      std::cout << "pick_objects: reached destination" << std::endl;
       
       std::stringstream ss;
       ss << "yes";
@@ -59,17 +58,17 @@ int main(int argc, char** argv){
     }
     else
     {
-      ROS_INFO("failed");
+      std::cout << "pick_objects: failed to reach destination" << std::endl;
     }
     
     // Wait for 5 seconds at pickup point
     ros::Duration(5).sleep();
   }
-      
-  std::stringstream ss;
-  ss << "no";
-  msg.data = ss.str();
-  arrived_pub.publish(msg);
+  
+  //std::stringstream ss;
+  //ss << "no";
+  //msg.data = ss.str();
+  //arrived_pub.publish(msg);
   
   return 0;
 }
