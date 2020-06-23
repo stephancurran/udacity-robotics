@@ -70,14 +70,16 @@ This project uses the `turtlebot` and `slam_gmapping` packages for localization 
 
 ### Mapping
 Test: `./scripts/test_slam.sh`  
-Here's the map produced by navigating with the `slam_gmapping` package.
+Here's the map produced by navigating with the `slam_gmapping` package. `slam_gmapping` is a wrapper for `gmapping`, which is itself a wrapper for OpenSlam's Gmapping. It uses laser-based SLAM and pose data to create an occupancy grid map (shown below) of the robot's environment.
 
 ![slam_gmapping map](map/slam_map.png)
 
 ### Localization and Navigation
 Test: `./scripts/test_navigation.sh`  
 Send robot to pickup/dropoff:  `./scripts/pick_objects.sh`  
+Turtlebot provides an Adaptive Monte Carlo Localization (AMCL) demo which allows the robot to identify its position in the environment.
 
 ### Home Service Functions
 Test: `./scripts/add_marker.sh`  
 Put it all together:  `./scripts/home_service.sh`  
+`home_service.sh` puts an RVIZ marker in the environment; the robot moves to this location to pick up the marker, then moves to a drop off point where the marker is put down again.
